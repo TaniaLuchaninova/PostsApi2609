@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { getPostsHandler, getPostByIdHandler, createPostHandler } from '../handlers/post.js'
+import { getPostsHandler, getPostByIdHandler, createPostHandler } from '../transport/post.js'
 
 const router = Router()
 
