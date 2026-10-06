@@ -1,10 +1,16 @@
-import { Router } from 'express'
-import { getPostsHandler, getPostByIdHandler, createPostHandler } from '../transport/post.js'
+import { Router } from 'express';
+import type { RequestHandler } from 'express';
 
-const router = Router()
+export function createPostRouter(handlers: {
+  getPosts: RequestHandler;
+  getPostById: RequestHandler;
+  createPost: RequestHandler;
+}) {
+  const router = Router();
 
-router.get('/', getPostsHandler)
-router.get('/:id', getPostByIdHandler)
-router.post('/', createPostHandler)
+  router.get('/', handlers.getPosts);
+  router.get('/:id', handlers.getPostById);
+  router.post('/', handlers.createPost);
 
-export default router
+  return router;
+}

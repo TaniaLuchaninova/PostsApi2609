@@ -1,6 +1,6 @@
 import type { Post } from './entity.ts';
 
-export interface PostRepositoryContract {
+export interface PostRepository {
   getAll: (category?: string, take?: number) => Post[];
   getById: (id: number) => Post | undefined;
   addPost: (data: {
